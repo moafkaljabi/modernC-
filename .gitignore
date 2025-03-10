@@ -2,3 +2,4 @@ build/
 .env
 .notes
 .notes.txt
+data.txt
