@@ -1,17 +1,29 @@
 #include <iostream>
-#include <vector>
 #include <thread>
-#include <memory>
-#include <chrono>
+#include <vector>
 #include <fstream>
+#include <memory>
 
 
-std::unique_ptr<std::thread> threads;
+// std::vector<std::shared_ptr<std::ofstream>> files;
 
-
-
-int main()
+void read_file(const std::string& filename)
 {
-    std::this_thread::get_id();
-    std::cout << "Main thread id: " << std::this_thread::get_id() << std::endl;
+    std::ifstream file(filename);
+    std::string line;
+
+    while(getline(file, line))
+    {
+        std::cout << line << std::endl;
+    }
 }
+
+
+
+
+int main() 
+{
+    read_file("data.txt");
+}
+
+
