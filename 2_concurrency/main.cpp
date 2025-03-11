@@ -4,21 +4,14 @@
 #include <fstream>
 #include <memory>
 
-
 // std::vector<std::shared_ptr<std::ofstream>> files;
 
-std::thread create_thread()
+jthread create_thread()
 {
-    return std::thread([](std::stop_token stoken)
-    {
-        while(!stoken.stop_requested())
-        {
-            std::cout << "Thread is running" << std::endl;
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-        }
+    return jthread([]{
+        std::cout << "Hello from thread" << std::this_thread::get_id() << std::endl;
     });
 }
-
 
 void read_file(const std::string& filename)
 {
