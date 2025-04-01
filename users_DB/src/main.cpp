@@ -1,4 +1,6 @@
-// #include "../include/main.h"
+ #include "../include/main.h"
+ #include "../config.h"
+
 
 #include "../include/main.h"
 #include "../MySQLHandler/MySQLHandler.h"
@@ -14,10 +16,6 @@ void displayMenu() {
 int main() {
     MySQLHandler dbHandler;
 
-    std::string host = "tcp://127.0.0.1:3306";
-    std::string user = "root";
-    std::string password = "2222";
-    std::string database = "Parks_and_Recreation";
 
     dbHandler.connectToDatabase(host, user, password, database);
 
